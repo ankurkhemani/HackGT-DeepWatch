@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-1fc6c38e44d92c3ccc0ca61411200d1193416f6e.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-56467cdc0c762a2c22017902f76e8537549d161a.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-9fcb25d800134511abe2193b7538a29318575435.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-4327e048c2da38dbef0ba01dcf35597809296fa8.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/Development/Android/adt-bundle-mac-x86_64-20130522/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.0/support-annotations-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.0-43ac139e6ae687e8bad82ce35f9ed503b73685c0.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-cf3dc8bda49288cd7e085cd14c54a8bfe61b87a9.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-5a48788dad158f3470a27efd3704bcb105fb8827.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-f854cf790b182d942d723e96024e6d946e8667ff.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-d9f54b0893a24788464007b548c0409028067a4c.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-7762a413d871bebc37d776cae1cfb19f41ada352.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/classes-dbfbdd8dcb7628776045909b9c8a0aad973d32ec.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-237b8a092ac5cea0d3c86bed77533b7f82b386bd.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-55458d35a0277cc82b3a8e2b6e395af3a057e80f.jar" />
+    </item>
+
+</items>

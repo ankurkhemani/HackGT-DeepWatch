@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DeepWatch</string>
+
+    <string name="dummy_button">Deep Watch</string>
+    <string name="dummy_content">Video</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+</resources>
