@@ -46,12 +46,14 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/deepwatch"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner_shadow"
             android:textColor="#000"
             android:text="@string/dummy_button" />
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -2,15 +2,19 @@ package ankur.hackgt.deepwatch;
 
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayer.PlayerStyle;
 import com.google.android.youtube.player.YouTubePlayerView;
+
+import com.microsoft.projectoxford.face.*;
+import com.microsoft.projectoxford.face.contract.*;
 
 
 public class MainActivity extends YouTubeBaseActivity implements
@@ -19,6 +23,8 @@ public class MainActivity extends YouTubeBaseActivity implements
     private static final int RECOVERY_DIALOG_REQUEST = 1;
     // YouTube player view
     private YouTubePlayerView youTubeView;
+    Button deepWatch;
+    private FaceServiceClient faceServiceClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +39,18 @@ public class MainActivity extends YouTubeBaseActivity implements
         youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
 
         // Initializing video player with developer key
-        youTubeView.initialize(Config.DEVELOPER_KEY, this);
+        youTubeView.initialize(Config.GOOGLE_DEVELOPER_KEY, this);
+
+
+        faceServiceClient = new FaceServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY);
+
+        deepWatch = (Button) findViewById(R.id.deepwatch);
+        deepWatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
