@@ -3,6 +3,7 @@ package ankur.hackgt.deepwatch.fragments;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class CelebrityFragment extends Fragment implements UpdateableFragment {
         if(data.position==0) {
             // do whatever you want to update your UI
             mTitle.setText(data.celebName);
-            mBody.setText(data.celebDetails);
+            mBody.setText(Html.fromHtml(data.celebDetails));
             imageView.setImageBitmap(data.celebImage);
 
         }

@@ -2,32 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-b0004037f69bdf5c1cd82f664a4d7ee529325eec.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.pacioianu.david/ink-page-indicator/1.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="b938134e19d4c5238bbe7b3d64d68e2f3a5638c9">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-338fa6151be4b921601451cbe922d6c053555244.jar" />
-    </item>
-    <item
         jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
         <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-f7f0b410e6933b2dea28da8f6518c2eed65ce0f6.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/face/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="b9885b9cbfc39129a13674d39d0cae321fc0dc97">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-145d6a2f1b69b1740aad3fd1e9f5403e902d3812.jar" />
     </item>
     <item
         jar="/Users/Ankur/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
@@ -37,11 +16,46 @@
         <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/gson-2.3.1-12eb5c0f3e7300558ed523a9b52075abaec460c9.jar" />
     </item>
     <item
+        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.pacioianu.david/ink-page-indicator/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b938134e19d4c5238bbe7b3d64d68e2f3a5638c9">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-338fa6151be4b921601451cbe922d6c053555244.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/vision/1.0.354/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9b1a002a8b4bdd3d66cbadfdc4b16dfabd8e1042">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-4c6a89d9b4a04c8b65349943a4bd9da1225c9e04.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/face/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b9885b9cbfc39129a13674d39d0cae321fc0dc97">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-145d6a2f1b69b1740aad3fd1e9f5403e902d3812.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-b0004037f69bdf5c1cd82f664a4d7ee529325eec.jar" />
+    </item>
+    <item
         jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-b64f1c6361546de55328cc4149f5b54d58d43141.jar" />
+    </item>
+    <item
+        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/vision/1.0.354/jars/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/commons-io-2.4-3290805cca73b6e136dd2507b9bdf1c5544786f3.jar" />
     </item>
 
 </items>

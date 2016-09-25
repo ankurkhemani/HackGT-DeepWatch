@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -20,6 +21,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
 import com.microsoft.projectoxford.face.contract.Face;
@@ -34,6 +39,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ankur.hackgt.deepwatch.model.UpdateData;
+
+import com.microsoft.projectoxford.vision.VisionServiceClient;
+import com.microsoft.projectoxford.vision.VisionServiceRestClient;
+import com.microsoft.projectoxford.vision.contract.AnalysisInDomainResult;
+import com.microsoft.projectoxford.vision.rest.VisionServiceException;
 
 
 public class MainActivity extends FragmentActivity implements TextureView.SurfaceTextureListener, MediaController.MediaPlayerControl {
@@ -52,6 +62,10 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
     static int mVideoNumber = -1;
     private CustomPagerAdapter mCustomPagerAdapter;
 
+    private VisionServiceClient client;
+
+    UpdateData updateData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +82,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
         mPreview.setSurfaceTextureListener(this);
 
 
-        faceServiceClient = new FaceServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY);
+        faceServiceClient = new FaceServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY_FACE);
 
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -82,18 +96,20 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
             @Override
             public void onClick(View view) {
                 Log.d("bitmap", "" + getBitmap());
-//                im = (ImageView) findViewById(R.id.image);
-//                im.setImageBitmap(getBitmap());
+                if (client == null) {
+                    client = new VisionServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY_CV);
+                }
+
                 mMediaPlayer.pause();
                 mediaController.show();
                 Log.d("DEBUG:", "Calling detectAndFrame");
                 detectAndFrame(getBitmap());
-                UpdateData data = new UpdateData();
-                data.position = 0;
-                data.celebName = "Kaley Cuoco";
-                data.celebDetails = "I love acting :P";
-                data.celebImage = getBitmap();
-                mCustomPagerAdapter.update(data);
+                updateData = new UpdateData();
+                updateData.position = 0;
+                updateData.celebName = "Kaley Cuoco";
+                updateData.celebDetails = "<p>Description here <a href=\"http://www.google.com\">Google</a></p>";
+                updateData.celebImage = getBitmap();
+                mCustomPagerAdapter.update(updateData);
 
 
             }
@@ -155,11 +171,11 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
     }
 
     private void detectAndFrame(final Bitmap imageBitmap){
-            Log.d("DEBUG:", "Inside detectAndFrame");
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-            ByteArrayInputStream inputStream =
-                    new ByteArrayInputStream(outputStream.toByteArray());
+        Log.d("DEBUG:", "Inside detectAndFrame");
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+        ByteArrayInputStream inputStream =
+                new ByteArrayInputStream(outputStream.toByteArray());
         AsyncTask<InputStream, String, Face[]> detectTask =
                 new AsyncTask<InputStream, String, Face[]>() {
                     @Override
@@ -191,9 +207,12 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                     protected void onPostExecute(Face[] result) {
                         Log.d("DEBUG:", "Inside Post Execution");
 
-                        if (result == null) return;
-                        //im.setImageBitmap(getFaceRectanglesOnBitmap(imageBitmap, result).get(0));
-                        //imageBitmap.recycle();
+                        //if (result == null || result.length == 0)
+                            new doRequest(imageBitmap).execute();
+                        //List<Bitmap> faces = getFaceRectanglesOnBitmap(imageBitmap, result);
+                        //for (Bitmap face : faces) {
+                          //  new doRequest(face).execute();
+                        //}
                     }
                 };
         detectTask.execute(inputStream);
@@ -207,9 +226,12 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
             for (Face face : faces) {
                 FaceRectangle faceRectangle = face.faceRectangle;
                 Log.d("DEBUG:", faceRectangle.left + " " + faceRectangle.top + " " + faceRectangle.width + " " + faceRectangle.height);
+                faceRectangle.left = faceRectangle.left-150 < 0 ? 1 : faceRectangle.left-150;
+                faceRectangle.top = faceRectangle.top-300 < 0 ? 1 : faceRectangle.top-300;
+                faceRectangle.height = faceRectangle.top + faceRectangle.height + 400 > originalBitmap.getHeight() ? originalBitmap.getHeight()-faceRectangle.top-1 : faceRectangle.height+400;
+                faceRectangle.width = faceRectangle.left + faceRectangle.width + 150 > originalBitmap.getWidth() ? originalBitmap.getWidth()-faceRectangle.left-1 : faceRectangle.width+150;
                 Bitmap bitmap = Bitmap.createBitmap(originalBitmap, faceRectangle.left,
                         faceRectangle.top, faceRectangle.width, faceRectangle.height);
-
                 result.add(bitmap);
             }
         }
@@ -219,6 +241,73 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
         return result;
     }
 
+    private class doRequest extends AsyncTask<String, String, String> {
+        // Store error message
+        private Exception e = null;
+        private Bitmap mBitmap;
+
+        public doRequest(Bitmap bitmap) {
+            mBitmap = bitmap;
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            try {
+                return process(mBitmap);
+            } catch (Exception e) {
+                this.e = e;    // Store error
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String data) {
+            super.onPostExecute(data);
+            // Display based on error existence
+
+            if (e != null) {
+                Log.d("Error: " , e.getMessage());
+                this.e = null;
+            } else {
+                Gson gson = new Gson();
+                AnalysisInDomainResult result = gson.fromJson(data, AnalysisInDomainResult.class);
+
+                // Decode the returned result
+                // NOTE: this is different for each domain model
+                JsonArray detectedCelebs = result.result.get("celebrities").getAsJsonArray();
+
+                for (JsonElement celebElement: detectedCelebs) {
+                    JsonObject celeb = celebElement.getAsJsonObject();
+                    updateData.celebName = celeb.get("name").getAsString();
+                    mCustomPagerAdapter.update(updateData);
+                }
+
+
+                //info.append("\n--- Raw Data ---\n\n");
+                Log.d("Raw data", data);
+            }
+
+            //mButtonSelectImage.setEnabled(true);
+        }
+    }
+
+    private String process(Bitmap mBitmap) throws VisionServiceException, IOException {
+        Gson gson = new Gson();
+
+        String model = "celebrities";
+
+        // Put the image into an input stream for detection.
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, output);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(output.toByteArray());
+
+        AnalysisInDomainResult v = this.client.analyzeImageInDomain(inputStream, model);
+        String result = gson.toJson(v);
+        Log.d("result", result);
+
+        return result;
+    }
     //--MediaPlayerControl methods----------------------------------------------------
     @Override
     public void start() {
