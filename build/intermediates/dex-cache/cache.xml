@@ -2,95 +2,109 @@
 <items version="2" >
 
     <item
-        jar="/Users/Ankur/Development/Android/adt-bundle-mac-x86_64-20130522/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.0/support-annotations-24.2.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.0-43ac139e6ae687e8bad82ce35f9ed503b73685c0.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-b430133e01c2d51bf94f12d0528a9f398e53578d.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/libs/YouTubeAndroidPlayerApi.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-a032b9c019a50f77409d8db9d95523672417fa40.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-40bf5cb8e24a9d76c554dfd3ccf34f4bf3a3d934.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-606685958b40cac25b99d654f5f4f92c313c8884.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-685abb9e5952b265224997b609933c0c8fe9c1d1.jar" />
-    </item>
-    <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/classes.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-0465e525ef6a29e0ec3b3639053019dbed351456.jar" />
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-ea5c2e6a6853ceded17cbc9f1de0f88435eaed98.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-3d101818869da6ec79589988cd8dadfae84745f3.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\libs\internal_impl-24.2.0.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-cc78c3b5c5d11bbf4071624c03ef255a1a878390.jar" />
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-16c736efeaf1f8d6c276eab5c35c634eaa6b4530.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.microsoft.projectoxford\face\1.0.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-d861414d7a3dc0597a71a79c4ae1187c9bb1e524.jar" />
+        sha1="b9885b9cbfc39129a13674d39d0cae321fc0dc97">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-adc5642ca8e714e674bb6f869de345b64feb85ce.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\libs\YouTubeAndroidPlayerApi.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0-3eb80e6ca62ed7966b53f36eed69b1b5c14d87c7.jar" />
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-40a9f845aa3d5690f31b0c9a978597b34a055437.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/classes.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-dfaf0a718fd97b83c4c909bd90fd868cc0ea0b00.jar" />
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-a52d53e39328846fe29150c7b333f7c2c0687d20.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/classes.jar"
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-79c8631dc58fc1993c8deb5374b58f9391eb91af.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-1bf5c6f132ed1f59fcd644d8db05d049af761a4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-87715ae5b6f8e3bb241cb9f00e747523f2463fa9.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-88a91f4f16d6d702fe922fd072e38f72bef4546c.jar" />
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-4f7c0d94af78415d0190f92a92b6b511684f4e3b.jar" />
     </item>
     <item
-        jar="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
+        jar="C:\Users\minaxi92\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\gson-2.3.1-541ed769a880f7061e0ea9805cab5e494655235f.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0-f3a0474588f624dc0892351a701075b3d4b89b0f.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-ae768977d6077abe98f719a28c6b5c5980709255.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
-        <dex dex="/Users/Ankur/AndroidStudioProjects/HackGT-DeepWatch/app/build/intermediates/pre-dexed/debug/classes-77c7699c5b6d1686bfa38637a0ac08f4dc005566.jar" />
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\classes-fbc00819459505be5c7787bcff8891b93cd4843a.jar" />
+    </item>
+    <item
+        jar="C:\Users\minaxi92\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.0\support-annotations-24.2.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="C:\Users\minaxi92\Documents\GitHub\HackGT-DeepWatch\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.0-7cde50434536351e8a7bc6da2ff5bc1528e65a98.jar" />
     </item>
 
 </items>
