@@ -38,7 +38,7 @@ public class CelebrityFragment extends Fragment implements UpdateableFragment {
         // so check if update is for this fragment
         if(data.position==0) {
             // do whatever you want to update your UI
-            mTitle.setText(data.celebName);
+            mTitle.setText(Html.fromHtml(data.celebName));
             mBody.setText(Html.fromHtml(data.celebDetails));
             imageView.setImageBitmap(data.celebImage);
 

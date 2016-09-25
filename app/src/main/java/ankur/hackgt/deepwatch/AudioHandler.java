@@ -25,6 +25,7 @@ public class AudioHandler {
 
     private int _timeInterval;
     private HashMap<String, Vector<EntityStructure>> _files;
+    InputStream is;
 
     static class EntityStructure {
         public int start;
@@ -48,10 +49,10 @@ public class AudioHandler {
         String [] myfiles = new String [] { "0", "1"};
         for (String filename: myfiles) {
             if (filename == "0") {
-                InputStream is = res.openRawResource(R.drawable.audio0);
+                is = res.openRawResource(R.drawable.audio0);
             }
             else if (filename == "1") {
-                InputStream is = res.openRawResource(R.drawable.audio1);
+                is = res.openRawResource(R.drawable.audio1);
             }
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));

@@ -9,7 +9,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -68,7 +67,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
 
     UpdateData updateData;
     String entity = "";
-
+    Bitmap imageMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +100,6 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
         deepWatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("bitmap", "" + getBitmap());
                 if (client == null) {
                     client = new VisionServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY_CV);
                 }
@@ -109,29 +107,29 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                 mMediaPlayer.pause();
                 mediaController.show();
                 Log.d("DEBUG:", "Calling detectAndFrame");
-                detectAndFrame(getBitmap());
-                updateData.position = 0;
+                imageMap = getBitmap();
+                detectAndFrame(imageMap);
 
-//                updateData.celebName = "Kaley Cuoco";
-//                updateData.celebDetails = "<p>Description here <a href=\"http://www.google.com\">Google</a></p>";
-//                updateData.celebImage = getBitmap();
-//                mCustomPagerAdapter.update(updateData);
                 Log.d("timestamp: ", "" + getCurrentPosition() / 1000);
-                List<String> entities = mAudioHandler.getEntities("0", getCurrentPosition()/1000);
+                List<String> entities = mAudioHandler.getEntities(String.valueOf(mVideoNumber), getCurrentPosition()/1000);
                 Log.d("array: ", entities.size()==0?"Empty" : entities.get(0));
 
 
                 for(String e: entities){
-                    entity += e + "\n";
+                    entity += "<a href=\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">" + e + "</a>\n";
                 }
+
                 if(entities.size()>0){
                     updateData.position = 1;
                     updateData.entities = entity;
                     mCustomPagerAdapter.update(updateData);
                 }
 
-
-
+                updateData.celebName = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">Jim Parsons</a>";
+                updateData.position = 0;
+                updateData.celebDetails = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Australia\">Australia</a>James Joseph \"Jim\" Parsons is an American actor. He is known for playing Sheldon Cooper in the CBS sitcom The Big Bang Theory.";
+                updateData.celebImage = imageMap;
+                mCustomPagerAdapter.update(updateData);
             }
         });
 
@@ -299,7 +297,11 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
 
                 for (JsonElement celebElement: detectedCelebs) {
                     JsonObject celeb = celebElement.getAsJsonObject();
-                    updateData.celebName = celeb.get("name").getAsString();
+                    String name = celeb.get("name").getAsString();
+                    updateData.celebName = "<a href=\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">" + name+  "</a>";
+                    updateData.position = 0;
+                    updateData.celebDetails = "George Walker Bush is an American politician who was the 43rd President of the United States from 2001 to 2009 and 46th Governor of Texas from 1995 to 2000.";
+                    updateData.celebImage = imageMap;
                     mCustomPagerAdapter.update(updateData);
                 }
 

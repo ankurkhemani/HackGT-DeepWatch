@@ -32,7 +32,7 @@ public class TopicFragment extends Fragment implements UpdateableFragment{
         // so check if update is for this fragment
         if(data.position==1) {
             // do whatever you want to update your UI
-            mEntity.setText(data.entities);
+            mEntity.setText(Html.fromHtml(data.entities));
 
 
         }
