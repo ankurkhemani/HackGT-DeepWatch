@@ -29,7 +29,7 @@
             <TextureView
                 android:id="@+id/textureView"
                 android:layout_width="match_parent"
-                android:layout_height="325dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="10dp" />
 
             <!--<ImageView-->
@@ -49,7 +49,7 @@
                 android:id="@+id/viewpager"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:layout_marginBottom="10dp"
                 />
             <com.pixelcan.inkpageindicator.InkPageIndicator

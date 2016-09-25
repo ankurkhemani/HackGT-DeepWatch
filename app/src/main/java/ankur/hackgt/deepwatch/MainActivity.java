@@ -116,7 +116,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
 
 
                 for(String e: entities){
-                    entity += "<a href=\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">" + e + "</a>\n";
+                    entity += "<a href=\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">" + e + "</a>" + "<br>";
                 }
 
                 if(entities.size()>0){
@@ -125,11 +125,11 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                     mCustomPagerAdapter.update(updateData);
                 }
 
-                updateData.celebName = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">Jim Parsons</a>";
-                updateData.position = 0;
-                updateData.celebDetails = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Australia\">Australia</a>James Joseph \"Jim\" Parsons is an American actor. He is known for playing Sheldon Cooper in the CBS sitcom The Big Bang Theory.";
-                updateData.celebImage = imageMap;
-                mCustomPagerAdapter.update(updateData);
+//                updateData.celebName = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">Jim Parsons</a>";
+//                updateData.position = 0;
+//                updateData.celebDetails = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Australia\">Australia</a>James Joseph \"Jim\" Parsons is an American actor. He is known for playing Sheldon Cooper in the CBS sitcom The Big Bang Theory.";
+//                updateData.celebImage = imageMap;
+//                mCustomPagerAdapter.update(updateData);
             }
         });
 
