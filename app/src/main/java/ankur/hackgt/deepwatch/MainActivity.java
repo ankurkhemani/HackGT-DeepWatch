@@ -57,7 +57,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
     private FaceServiceClient faceServiceClient;
     private MediaController mediaController;
     InkPageIndicator mIndicator;
-    int[] mVideos = {R.raw.v1, R.raw.v2};
+    int[] mVideos = {R.raw.v1, R.raw.v2, R.raw.v3};
     static int mVideoNumber = -1;
     private CustomPagerAdapter mCustomPagerAdapter;
 
