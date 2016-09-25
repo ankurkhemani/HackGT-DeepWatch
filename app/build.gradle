@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.0'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
     compile 'com.microsoft.projectoxford:face:1.0.0'
+    compile 'com.pacioianu.david:ink-page-indicator:1.2.0'
 }

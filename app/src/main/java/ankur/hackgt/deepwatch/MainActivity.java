@@ -1,13 +1,14 @@
 package ankur.hackgt.deepwatch;
 
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -23,6 +24,7 @@ import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
 import com.microsoft.projectoxford.face.contract.Face;
 import com.microsoft.projectoxford.face.contract.FaceRectangle;
+import com.pixelcan.inkpageindicator.InkPageIndicator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -31,8 +33,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import ankur.hackgt.deepwatch.model.UpdateData;
 
-public class MainActivity extends Activity implements TextureView.SurfaceTextureListener, MediaController.MediaPlayerControl {
+
+public class MainActivity extends FragmentActivity implements TextureView.SurfaceTextureListener, MediaController.MediaPlayerControl {
 
 
 
@@ -43,6 +47,10 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     Button deepWatch;
     private FaceServiceClient faceServiceClient;
     private MediaController mediaController;
+    InkPageIndicator mIndicator;
+    int[] mVideos = {R.raw.v1, R.raw.v2};
+    static int mVideoNumber = -1;
+    private CustomPagerAdapter mCustomPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,25 +62,44 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
 
         setContentView(R.layout.activity_main);
 
+
+
         mPreview = (TextureView) findViewById(R.id.textureView);
         mPreview.setSurfaceTextureListener(this);
 
 
         faceServiceClient = new FaceServiceRestClient(Config.MICROSOFT_DEVELOPER_KEY);
 
+
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        mCustomPagerAdapter = new CustomPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mCustomPagerAdapter);
+        mIndicator = (InkPageIndicator) findViewById(R.id.indicator);
+        mIndicator.setViewPager(viewPager);
+
         deepWatch = (Button) findViewById(R.id.deepwatch);
         deepWatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("bitmap", "" + getBitmap());
-                im = (ImageView) findViewById(R.id.image);
-                im.setImageBitmap(getBitmap());
+//                im = (ImageView) findViewById(R.id.image);
+//                im.setImageBitmap(getBitmap());
                 mMediaPlayer.pause();
                 mediaController.show();
                 Log.d("DEBUG:", "Calling detectAndFrame");
                 detectAndFrame(getBitmap());
+                UpdateData data = new UpdateData();
+                data.position = 0;
+                data.celebName = "Kaley Cuoco";
+                data.celebDetails = "I love acting :P";
+                data.celebImage = getBitmap();
+                mCustomPagerAdapter.update(data);
+
+
             }
         });
+
+
     }
 
     public Bitmap getBitmap(){
@@ -80,44 +107,25 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     }
 
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width, int height) {
+
         Surface surface = new Surface(surfaceTexture);
+        mMediaPlayer = new MediaPlayer();
+        mMediaPlayer.setSurface(surface);
+        mMediaPlayer.setLooping(true);
+        mediaController = new MediaController(MainActivity.this);
+        mediaController.setMediaPlayer(this);//your activity which implemented MediaPlayerControl
+        mediaController.setAnchorView(mPreview);
+        mediaController.setEnabled(true);
+        mediaController.setPadding(0, 0, 0, 0);
+        mediaController.show();
+        playNextVideo();
+        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                playNextVideo();
 
-        try {
-            mMediaPlayer = new MediaPlayer();
-            String FILE_NAME = "android.resource://" + getPackageName() + "/" + R.raw.video_1;
-            mMediaPlayer
-                    .setDataSource(this, Uri.parse(FILE_NAME));
-            mMediaPlayer.setSurface(surface);
-            mMediaPlayer.setLooping(true);
-
-            // don't forget to call MediaPlayer.prepareAsync() method when you use constructor for
-            // creating MediaPlayer
-            mMediaPlayer.prepareAsync();
-            mediaController = new MediaController(MainActivity.this);
-            mediaController.setMediaPlayer(this);//your activity which implemented MediaPlayerControl
-            mediaController.setAnchorView(mPreview);
-            mediaController.setEnabled(true);
-            mediaController.setPadding(0, 0, 0, 0);
-            mediaController.show();
-
-            // Play video when the media source is ready for playback.
-            mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
-                    // set up media controller
-                    mediaPlayer.start();
-                }
-            });
-
-        } catch (IllegalArgumentException e) {
-            Log.d(TAG, e.getMessage());
-        } catch (SecurityException e) {
-            Log.d(TAG, e.getMessage());
-        } catch (IllegalStateException e) {
-            Log.d(TAG, e.getMessage());
-        } catch (IOException e) {
-            Log.d(TAG, e.getMessage());
-        }
+            }
+        });
     }
 
     @Override
@@ -184,7 +192,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
                         Log.d("DEBUG:", "Inside Post Execution");
 
                         if (result == null) return;
-                        im.setImageBitmap(getFaceRectanglesOnBitmap(imageBitmap, result).get(0));
+                        //im.setImageBitmap(getFaceRectanglesOnBitmap(imageBitmap, result).get(0));
                         //imageBitmap.recycle();
                     }
                 };
@@ -201,13 +209,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
                 Log.d("DEBUG:", faceRectangle.left + " " + faceRectangle.top + " " + faceRectangle.width + " " + faceRectangle.height);
                 Bitmap bitmap = Bitmap.createBitmap(originalBitmap, faceRectangle.left,
                         faceRectangle.top, faceRectangle.width, faceRectangle.height);
-//                Canvas canvasOrg = new Canvas(originalBitmap);
-//                canvasOrg.clipRect(
-//                        faceRectangle.left,
-//                        faceRectangle.top,
-//                        faceRectangle.left + faceRectangle.width,
-//                        faceRectangle.top + faceRectangle.height,
-//                        Region.Op.REPLACE);
+
                 result.add(bitmap);
             }
         }
@@ -271,4 +273,33 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         return false;
     }
     //--------------------------------------------------------------------------------
+
+    private void playNextVideo(){
+        try {
+            if (mMediaPlayer != null) {
+                mMediaPlayer.reset();
+                mVideoNumber = ++mVideoNumber == mVideos.length ? 0 : mVideoNumber;
+                Log.d("videoNumber: ", "" + mVideoNumber);
+                String FILE_NAME = "android.resource://" + getPackageName() + "/" + mVideos[mVideoNumber];
+                mMediaPlayer.setDataSource(MainActivity.this, Uri.parse(FILE_NAME));
+                mMediaPlayer.prepareAsync();
+                // Play video when the media source is ready for playback.
+                mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mediaPlayer) {
+                        // set up media controller
+                        mediaPlayer.start();
+                    }
+                });
+            }
+        }catch(IllegalArgumentException e){
+            Log.d(TAG, e.getMessage());
+        }catch(SecurityException e){
+            Log.d(TAG, e.getMessage());
+        }catch(IllegalStateException e){
+            Log.d(TAG, e.getMessage());
+        }catch(IOException e) {
+            Log.d(TAG, e.getMessage());
+        }
+    }
 }
