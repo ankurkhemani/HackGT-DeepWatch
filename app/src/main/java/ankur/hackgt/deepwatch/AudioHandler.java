@@ -40,7 +40,7 @@ public class AudioHandler {
     }
 
     public AudioHandler(Resources res) {
-        this(10, res);
+        this(20, res);
     }
 
     public AudioHandler(int timeInterval, Resources res) {
