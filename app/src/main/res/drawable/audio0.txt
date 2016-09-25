@@ -1,18 +1,30 @@
-16,20
-Munchhausen trilemma
-20,24
-infinite regression 
-24,28
-axiomatic statements
-44,47
-cadavers
-54,59
-necrophilia
-103,107
-department of homeland security 
-104,107
-Sarah Connor
-126,130
-maha-yajnas 
-130,133
-Hindu
+0,5
+iraq
+6,12
+Australia
+17,25
+Howard government
+25,32
+extremists
+25,32
+radicals
+39,44
+Iraq
+39,44
+Afghanistan
+49,54
+strategic partnership
+65,70
+ideological struggle
+70,76
+coalition troops
+85,89
+the Middle East
+102,107
+kevin rudd
+168,173
+Sunni extremism
+169,173
+al-qaeda
+186,193
+Shiasm extremism
