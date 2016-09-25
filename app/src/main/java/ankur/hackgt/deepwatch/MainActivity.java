@@ -64,7 +64,10 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
 
     private VisionServiceClient client;
 
+    private AudioHandler mAudioHandler;
+
     UpdateData updateData;
+    String entity = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,9 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
         mIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
 
+        mAudioHandler = new AudioHandler(getResources());
+        updateData = new UpdateData();
+
         deepWatch = (Button) findViewById(R.id.deepwatch);
         deepWatch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,12 +110,26 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                 mediaController.show();
                 Log.d("DEBUG:", "Calling detectAndFrame");
                 detectAndFrame(getBitmap());
-                updateData = new UpdateData();
                 updateData.position = 0;
-                updateData.celebName = "Kaley Cuoco";
-                updateData.celebDetails = "<p>Description here <a href=\"http://www.google.com\">Google</a></p>";
-                updateData.celebImage = getBitmap();
-                mCustomPagerAdapter.update(updateData);
+
+//                updateData.celebName = "Kaley Cuoco";
+//                updateData.celebDetails = "<p>Description here <a href=\"http://www.google.com\">Google</a></p>";
+//                updateData.celebImage = getBitmap();
+//                mCustomPagerAdapter.update(updateData);
+                Log.d("timestamp: ", "" + getCurrentPosition() / 1000);
+                List<String> entities = mAudioHandler.getEntities("0", getCurrentPosition()/1000);
+                Log.d("array: ", entities.size()==0?"Empty" : entities.get(0));
+
+
+                for(String e: entities){
+                    entity += e + "\n";
+                }
+                if(entities.size()>0){
+                    updateData.position = 1;
+                    updateData.entities = entity;
+                    mCustomPagerAdapter.update(updateData);
+                }
+
 
 
             }

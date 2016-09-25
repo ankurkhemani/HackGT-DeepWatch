@@ -11,4 +11,5 @@ public class UpdateData {
     public String celebName;
     public String celebDetails;
     public Bitmap celebImage;
+    public String entities;
 }
