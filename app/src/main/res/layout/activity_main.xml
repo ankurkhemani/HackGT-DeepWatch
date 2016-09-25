@@ -36,19 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="170dp" />
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_marginBottom="10dp"-->
-                <!--android:text="INFO"-->
-                <!--android:textColor="@color/title"-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="bold" />-->
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/imageView1" />
+                android:text="INFO"
+                android:textColor="@color/title"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>

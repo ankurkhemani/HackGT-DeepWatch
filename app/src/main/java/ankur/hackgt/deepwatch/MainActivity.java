@@ -3,14 +3,13 @@ package ankur.hackgt.deepwatch;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Region;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
@@ -18,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 
 import com.microsoft.projectoxford.face.FaceServiceClient;
 import com.microsoft.projectoxford.face.FaceServiceRestClient;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity implements TextureView.SurfaceTextureListener {
+public class MainActivity extends Activity implements TextureView.SurfaceTextureListener, MediaController.MediaPlayerControl {
 
 
 
@@ -42,6 +42,7 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
     ImageView im;
     Button deepWatch;
     private FaceServiceClient faceServiceClient;
+    private MediaController mediaController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,8 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
                 Log.d("bitmap", "" + getBitmap());
                 im = (ImageView) findViewById(R.id.image);
                 im.setImageBitmap(getBitmap());
+                mMediaPlayer.pause();
+                mediaController.show();
                 Log.d("DEBUG:", "Calling detectAndFrame");
                 detectAndFrame(getBitmap());
             }
@@ -90,10 +93,18 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
             // don't forget to call MediaPlayer.prepareAsync() method when you use constructor for
             // creating MediaPlayer
             mMediaPlayer.prepareAsync();
+            mediaController = new MediaController(MainActivity.this);
+            mediaController.setMediaPlayer(this);//your activity which implemented MediaPlayerControl
+            mediaController.setAnchorView(mPreview);
+            mediaController.setEnabled(true);
+            mediaController.setPadding(0, 0, 0, 0);
+            mediaController.show();
+
             // Play video when the media source is ready for playback.
             mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mediaPlayer) {
+                    // set up media controller
                     mediaPlayer.start();
                 }
             });
@@ -188,15 +199,16 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
             for (Face face : faces) {
                 FaceRectangle faceRectangle = face.faceRectangle;
                 Log.d("DEBUG:", faceRectangle.left + " " + faceRectangle.top + " " + faceRectangle.width + " " + faceRectangle.height);
-                //Bitmap bitmap = Bitmap.createBitmap(faceRectangle.width, faceRectangle.height, Bitmap.Config.ARGB_8888);
-                Canvas canvasOrg = new Canvas(originalBitmap);
-                canvasOrg.clipRect(
-                        faceRectangle.left,
-                        faceRectangle.top,
-                        faceRectangle.left + faceRectangle.width,
-                        faceRectangle.top + faceRectangle.height,
-                        Region.Op.REPLACE);
-                result.add(originalBitmap);
+                Bitmap bitmap = Bitmap.createBitmap(originalBitmap, faceRectangle.left,
+                        faceRectangle.top, faceRectangle.width, faceRectangle.height);
+//                Canvas canvasOrg = new Canvas(originalBitmap);
+//                canvasOrg.clipRect(
+//                        faceRectangle.left,
+//                        faceRectangle.top,
+//                        faceRectangle.left + faceRectangle.width,
+//                        faceRectangle.top + faceRectangle.height,
+//                        Region.Op.REPLACE);
+                result.add(bitmap);
             }
         }
         if (result == null || result.size()==0)
@@ -204,4 +216,59 @@ public class MainActivity extends Activity implements TextureView.SurfaceTexture
         Log.d("DEBUG:", "Exiting getFaceRectangles");
         return result;
     }
+
+    //--MediaPlayerControl methods----------------------------------------------------
+    @Override
+    public void start() {
+        mMediaPlayer.start();
+    }
+    @Override
+    public void pause() {
+        mMediaPlayer.pause();
+    }
+    @Override
+    public int getDuration() {
+        return mMediaPlayer.getDuration();
+    }
+    @Override
+    public int getCurrentPosition() {
+        return mMediaPlayer.getCurrentPosition();
+    }
+    @Override
+    public void seekTo(int i) {
+        mMediaPlayer.seekTo(i);
+    }
+    @Override
+    public boolean isPlaying() {
+        return mMediaPlayer.isPlaying();
+    }
+    @Override
+    public int getBufferPercentage() {
+        return 0;
+    }
+    @Override
+    public boolean canPause() {
+        return true;
+    }
+    @Override
+    public boolean canSeekBackward() {
+        return true;
+    }
+    @Override
+    public boolean canSeekForward() {
+        return true;
+    }
+
+    @Override
+    public int getAudioSessionId() {
+        return 0;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //the MediaController will hide after 3 seconds - tap the screen to make it appear again
+        mediaController.show();
+        return false;
+    }
+    //--------------------------------------------------------------------------------
 }
