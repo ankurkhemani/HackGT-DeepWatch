@@ -45,9 +45,14 @@ public class AudioHandler {
     public AudioHandler(int timeInterval, Resources res) {
         this._timeInterval = timeInterval;
         this._files = new HashMap<String, Vector<EntityStructure>>();
-        String [] myfiles = new String [] { "0"};
+        String [] myfiles = new String [] { "0", "1"};
         for (String filename: myfiles) {
-            InputStream is = res.openRawResource(R.drawable.audio0);
+            if (filename == "0") {
+                InputStream is = res.openRawResource(R.drawable.audio0);
+            }
+            else if (filename == "1") {
+                InputStream is = res.openRawResource(R.drawable.audio1);
+            }
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
                 String line;
