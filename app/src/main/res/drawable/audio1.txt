@@ -1,0 +1,30 @@
+0,5
+iraq
+6,12
+Australia
+17,25
+Howard government
+25,32
+extremists
+25,32
+radicals
+39,44
+Iraq
+39,44
+Afghanistan
+49,54
+strategic partnership
+65,70
+ideological struggle
+70,76
+coalition troops
+85,89
+the Middle East
+102,107
+kevin rudd
+108,113
+Sunni extremism
+109,113
+al-qaeda
+186,193
+Shiasm extremism
