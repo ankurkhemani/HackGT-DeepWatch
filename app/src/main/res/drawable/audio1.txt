@@ -22,9 +22,9 @@ coalition troops
 the Middle East
 102,107
 kevin rudd
-108,113
+168,173
 Sunni extremism
-109,113
+169,173
 al-qaeda
 186,193
 Shiasm extremism
