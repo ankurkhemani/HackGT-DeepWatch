@@ -29,7 +29,7 @@
             <TextureView
                 android:id="@+id/textureView"
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
+                android:layout_height="350dp"
                 android:layout_marginBottom="10dp" />
 
             <!--<ImageView-->
@@ -49,7 +49,7 @@
                 android:id="@+id/viewpager"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="150dp"
                 android:layout_marginBottom="10dp"
                 />
             <com.pixelcan.inkpageindicator.InkPageIndicator
@@ -69,8 +69,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corner_shadow"
-            android:textColor="#000"
+
+            android:background="@drawable/rounded_corner_shadow_button"
+            android:textColor="#fff"
             android:text="@string/dummy_button" />
 
     </LinearLayout>

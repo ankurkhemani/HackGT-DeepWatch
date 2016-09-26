@@ -57,7 +57,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
     private FaceServiceClient faceServiceClient;
     private MediaController mediaController;
     InkPageIndicator mIndicator;
-    int[] mVideos = {R.raw.v1, R.raw.v2, R.raw.v3};
+    int[] mVideos = {R.raw.v1, R.raw.v2};
     static int mVideoNumber = -1;
     private CustomPagerAdapter mCustomPagerAdapter;
 
@@ -66,7 +66,6 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
     private AudioHandler mAudioHandler;
 
     UpdateData updateData;
-    String entity = "";
     Bitmap imageMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +113,7 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                 List<String> entities = mAudioHandler.getEntities(String.valueOf(mVideoNumber), getCurrentPosition()/1000);
                 Log.d("array: ", entities.size()==0?"Empty" : entities.get(0));
 
+                String entity = "";
 
                 for(String e: entities){
                     entity += "<a href=\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">" + e + "</a>" + "<br>";
@@ -125,11 +125,11 @@ public class MainActivity extends FragmentActivity implements TextureView.Surfac
                     mCustomPagerAdapter.update(updateData);
                 }
 
-//                updateData.celebName = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">Jim Parsons</a>";
-//                updateData.position = 0;
-//                updateData.celebDetails = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Australia\">Australia</a>James Joseph \"Jim\" Parsons is an American actor. He is known for playing Sheldon Cooper in the CBS sitcom The Big Bang Theory.";
-//                updateData.celebImage = imageMap;
-//                mCustomPagerAdapter.update(updateData);
+                updateData.celebName = "<a href=\\\"http://en.m.wikipedia.org.\\wiki\\Jim_Parsons\">Jim Parsons</a>";
+                updateData.position = 0;
+                updateData.celebDetails = "James Joseph \"Jim\" Parsons is an American actor. He is known for playing Sheldon Cooper in the CBS sitcom The Big Bang Theory.";
+                updateData.celebImage = imageMap;
+                mCustomPagerAdapter.update(updateData);
             }
         });
 
